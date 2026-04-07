@@ -3,248 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TA Portfolio</title>
+<title>Park Rokdo · TA Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
---bg:#0e0e0f;--bg2:#161618;--bg3:#1e1e21;
---accent:#c8a97e;--accent2:#7e9bc8;
---text:#e8e6e1;--muted:#7a7870;
---border:rgba(200,169,126,0.15);
---fd:'Syne',sans-serif;--fm:'DM Mono',monospace;
+  --bg:#0e0e0f;--bg2:#161618;--bg3:#1e1e21;
+  --accent:#c8a97e;--accent2:#7e9bc8;
+  --text:#e8e6e1;--muted:#8a8880;
+  --border:rgba(200,169,126,0.15);
+  --fd:'Syne',sans-serif;--fm:'DM Mono',monospace;
+  --max:1080px;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--fd)}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(14,14,15,0.92);backdrop-filter:blur(8px);z-index:100}
-.nav-logo{font-size:13px;font-family:var(--fm);color:var(--accent);letter-spacing:0.08em}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:12px;font-family:var(--fm);color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
+body{background:var(--bg);color:var(--text);font-family:var(--fd);font-size:16px;line-height:1.6}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 3rem}
+
+nav{border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(14,14,15,0.94);backdrop-filter:blur(10px);z-index:100}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-size:13px;font-family:var(--fm);color:var(--accent);letter-spacing:0.1em}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:13px;font-family:var(--fm);color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
-.hero{padding:8rem 3rem 6rem;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden}
-.hero-label{font-family:var(--fm);font-size:11px;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-name{font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:0.95;letter-spacing:-0.03em;margin-bottom:1rem}
+
+.hero{padding:7rem 0 5rem;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden}
+.hero-label{font-family:var(--fm);font-size:12px;color:var(--accent);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1.75rem}
+.hero-name{font-size:clamp(3.5rem,6vw,6rem);font-weight:700;line-height:0.92;letter-spacing:-0.03em;margin-bottom:1.25rem}
 .hero-name span{color:var(--accent)}
-.hero-role{font-family:var(--fm);font-size:14px;color:var(--muted);margin-bottom:3rem;letter-spacing:0.04em}
+.hero-role{font-family:var(--fm);font-size:15px;color:var(--muted);margin-bottom:3rem;letter-spacing:0.04em}
 .hero-tags{display:flex;gap:0.75rem;flex-wrap:wrap}
-.tag{font-family:var(--fm);font-size:11px;color:var(--accent2);border:0.5px solid rgba(126,155,200,0.3);border-radius:2px;padding:4px 10px;letter-spacing:0.06em}
-.hero-grid{position:absolute;right:3rem;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;opacity:0.08}
-.hero-grid-cell{width:40px;height:40px;border:0.5px solid var(--accent)}
-section{padding:5rem 3rem;border-bottom:0.5px solid var(--border)}
-.section-label{font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
-.section-label::after{content:'';flex:1;height:0.5px;background:var(--border)}
-.project-header{margin-bottom:2.5rem}
-.project-title{font-size:2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
-.project-sub{font-family:var(--fm);font-size:12px;color:var(--accent);letter-spacing:0.06em}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem}
-.work-card{background:var(--bg2);border:0.5px solid var(--border);padding:1.5rem}
-.work-card-title{font-size:14px;font-weight:500;margin-bottom:0.5rem}
-.work-card-scope{font-family:var(--fm);font-size:11px;color:var(--accent);letter-spacing:0.06em;margin-bottom:1rem}
-.work-card-desc{font-family:var(--fm);font-size:11px;color:var(--muted);line-height:1.8}
+.tag{font-family:var(--fm);font-size:12px;color:var(--accent2);border:0.5px solid rgba(126,155,200,0.35);border-radius:2px;padding:5px 12px;letter-spacing:0.05em}
+.hero-grid{position:absolute;right:3rem;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;opacity:0.07}
+.hero-grid-cell{width:44px;height:44px;border:0.5px solid var(--accent)}
+
+section{padding:5rem 0;border-bottom:0.5px solid var(--border)}
+.sec-label{font-family:var(--fm);font-size:12px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
+.sec-label::after{content:'';flex:1;height:0.5px;background:var(--border)}
+
+.proj-title{font-size:2.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.proj-sub{font-family:var(--fm);font-size:13px;color:var(--accent);letter-spacing:0.06em;margin-bottom:2.5rem}
+
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.work-card{background:var(--bg2);border:0.5px solid var(--border);padding:1.75rem}
+.wc-title{font-size:16px;font-weight:500;margin-bottom:0.5rem}
+.wc-scope{font-family:var(--fm);font-size:12px;color:var(--accent);letter-spacing:0.05em;margin-bottom:1rem}
+.wc-desc{font-family:var(--fm);font-size:13px;color:var(--muted);line-height:1.9}
+
 .spec-list{display:flex;flex-direction:column;gap:1px;margin-bottom:2rem}
-.spec-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--bg2);border-left:2px solid var(--accent)}
-.spec-key{font-family:var(--fm);font-size:11px;color:var(--muted);letter-spacing:0.08em}
-.spec-val{font-family:var(--fm);font-size:12px;color:var(--text)}
-.video-placeholder{aspect-ratio:16/9;background:var(--bg3);border:0.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted)}
-.video-caption{font-family:var(--fm);font-size:11px;letter-spacing:0.06em}
-.personal-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.spec-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:var(--bg2);border-left:2px solid var(--accent)}
+.spec-k{font-family:var(--fm);font-size:13px;color:var(--muted);letter-spacing:0.06em}
+.spec-v{font-family:var(--fm);font-size:13px;color:var(--text)}
+
+.video-ph{aspect-ratio:16/9;background:var(--bg3);border:0.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted)}
+.video-cap{font-family:var(--fm);font-size:13px;letter-spacing:0.06em}
+
+.personal-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .personal-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;border:0.5px solid var(--border)}
-.img-caption{font-family:var(--fm);font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:0.75rem}
-.personal-info{display:flex;flex-direction:column;gap:1.5rem}
-.personal-title{font-size:1.75rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.25rem}
-.personal-sub{font-family:var(--fm);font-size:12px;color:var(--accent);letter-spacing:0.06em}
-.personal-desc{font-family:var(--fm);font-size:12px;color:var(--muted);line-height:1.9}
+.img-cap{font-family:var(--fm);font-size:12px;color:var(--muted);letter-spacing:0.07em;margin-top:0.75rem}
+.personal-info{display:flex;flex-direction:column;gap:1.75rem}
+.p-title{font-size:2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.35rem}
+.p-sub{font-family:var(--fm);font-size:13px;color:var(--accent);letter-spacing:0.06em}
+.p-desc{font-family:var(--fm);font-size:14px;color:var(--muted);line-height:1.95}
+
 .detail-list{display:flex;flex-direction:column;gap:1px}
-.detail-item{display:flex;gap:1rem;align-items:flex-start;padding:0.75rem 1rem;background:var(--bg2)}
-.detail-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:4px}
-.detail-text{font-family:var(--fm);font-size:11px;color:var(--muted);line-height:1.7}
-.wip-banner{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg3);border:0.5px solid rgba(200,169,126,0.25);border-left:2px solid var(--accent);margin-top:1.5rem}
-.wip-label{font-family:var(--fm);font-size:10px;color:var(--accent);letter-spacing:0.1em}
-.wip-text{font-family:var(--fm);font-size:11px;color:var(--muted)}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-.tool-card{background:var(--bg2);padding:1.5rem;border:0.5px solid var(--border)}
+.detail-item{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.25rem;background:var(--bg2)}
+.detail-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+.detail-text{font-family:var(--fm);font-size:13px;color:var(--muted);line-height:1.8}
+
+.wip-banner{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg3);border:0.5px solid rgba(200,169,126,0.2);border-left:2px solid var(--accent);margin-top:0.5rem}
+.wip-label{font-family:var(--fm);font-size:11px;color:var(--accent);letter-spacing:0.12em}
+.wip-text{font-family:var(--fm);font-size:13px;color:var(--muted)}
+
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.tool-card{background:var(--bg2);padding:1.75rem;border:0.5px solid var(--border)}
 .tool-card.primary{border-color:rgba(200,169,126,0.4)}
 .tool-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-.tool-name{font-size:15px;font-weight:500}
-.tool-badge{font-family:var(--fm);font-size:10px;padding:3px 8px;letter-spacing:0.06em}
+.tool-name{font-size:16px;font-weight:500}
+.tool-badge{font-family:var(--fm);font-size:11px;padding:3px 9px;letter-spacing:0.06em}
 .badge-main{background:rgba(200,169,126,0.15);color:var(--accent);border:0.5px solid rgba(200,169,126,0.4)}
-.badge-exp{background:rgba(122,120,112,0.15);color:var(--muted);border:0.5px solid rgba(122,120,112,0.3)}
-.tool-desc{font-family:var(--fm);font-size:11px;color:var(--muted);line-height:1.7}
+.badge-exp{background:rgba(122,120,112,0.12);color:var(--muted);border:0.5px solid rgba(122,120,112,0.3)}
+.tool-desc{font-family:var(--fm);font-size:13px;color:var(--muted);line-height:1.8}
+
 .career-list{display:flex;flex-direction:column;gap:1px}
-.career-item{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:2rem;padding:1.25rem 1.5rem;background:var(--bg2)}
-.career-year{font-family:var(--fm);font-size:11px;color:var(--muted)}
-.career-role{font-size:14px;font-weight:500}
-.career-company{font-family:var(--fm);font-size:12px;color:var(--accent)}
-.contact-area{display:flex;align-items:center;gap:3rem}
-.contact-line{font-size:2rem;font-weight:700;letter-spacing:-0.02em}
+.career-item{display:grid;grid-template-columns:160px 1fr auto;align-items:center;gap:2rem;padding:1.4rem 1.5rem;background:var(--bg2)}
+.career-year{font-family:var(--fm);font-size:13px;color:var(--muted)}
+.career-role{font-size:16px;font-weight:500}
+.career-company{font-family:var(--fm);font-size:14px;color:var(--accent)}
+
+.contact-area{display:flex;align-items:center;gap:4rem}
+.contact-line{font-size:2.25rem;font-weight:700;letter-spacing:-0.02em}
 .contact-line span{color:var(--accent)}
-.contact-info{font-family:var(--fm);font-size:13px;color:var(--muted);line-height:2;margin-left:auto}
-.cta-btn{display:inline-block;font-family:var(--fm);font-size:11px;color:var(--accent);border:0.5px solid var(--accent);padding:10px 20px;letter-spacing:0.1em;cursor:pointer;background:transparent;text-decoration:none;margin-top:1.5rem;transition:background 0.2s}
+.contact-info{font-family:var(--fm);font-size:14px;color:var(--muted);line-height:2.2;margin-left:auto}
+.cta-btn{display:inline-block;font-family:var(--fm);font-size:12px;color:var(--accent);border:0.5px solid var(--accent);padding:12px 24px;letter-spacing:0.1em;cursor:pointer;background:transparent;text-decoration:none;margin-top:2rem;transition:background 0.2s}
 .cta-btn:hover{background:rgba(200,169,126,0.1)}
+
 @media(max-width:768px){
-nav{padding:1rem 1.5rem}
-.nav-links{gap:1rem}
-.hero{padding:4rem 1.5rem 3rem}
-section{padding:3rem 1.5rem}
-.work-grid{grid-template-columns:1fr}
-.personal-layout{grid-template-columns:1fr}
-.career-item{grid-template-columns:1fr;gap:0.5rem}
-.contact-area{flex-direction:column;align-items:flex-start}
-.contact-info{margin-left:0}
+  .wrap{padding:0 1.5rem}
+  .nav-inner{padding:1rem 1.5rem}
+  .nav-links{gap:1.25rem}
+  .hero{padding:4rem 0 3rem}
+  section{padding:3rem 0}
+  .work-grid{grid-template-columns:1fr}
+  .personal-layout{grid-template-columns:1fr;gap:2rem}
+  .career-item{grid-template-columns:1fr;gap:0.35rem;padding:1rem 1.25rem}
+  .contact-area{flex-direction:column;align-items:flex-start;gap:2rem}
+  .contact-info{margin-left:0}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-logo">TA_PORTFOLIO</span>
-  <div class="nav-links">
-    <a href="#lop">lies of p</a>
-    <a href="#personal">personal</a>
-    <a href="#tools">tools</a>
-    <a href="#career">career</a>
-    <a href="#contact">contact</a>
+  <div class="nav-inner">
+    <span class="nav-logo">TA_PORTFOLIO</span>
+    <div class="nav-links">
+      <a href="#lop">lies of p</a>
+      <a href="#personal">personal</a>
+      <a href="#tools">tools</a>
+      <a href="#career">career</a>
+      <a href="#contact">contact</a>
+    </div>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-label">Technical Artist · Rigger</div>
-  <div class="hero-name">이름<br><span>여기에</span></div>
-  <div class="hero-role">7yr experience · Character Rigging & Secondary Animation</div>
-  <div class="hero-tags">
-    <span class="tag">Maya</span>
-    <span class="tag">3ds Max</span>
-    <span class="tag">Unreal Engine 5</span>
-    <span class="tag">Unreal Engine 4</span>
-    <span class="tag">Secondary Animation</span>
-    <span class="tag">Pipeline</span>
-  </div>
-  <div class="hero-grid">
-    <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
-    <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
-    <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
+  <div class="wrap">
+    <div class="hero-label">Technical Artist · Rigger</div>
+    <div class="hero-name">박록도<br><span>Park Rokdo</span></div>
+    <div class="hero-role">7yr experience · Character Rigging & Secondary Animation</div>
+    <div class="hero-tags">
+      <span class="tag">Maya</span>
+      <span class="tag">3ds Max</span>
+      <span class="tag">Unreal Engine 5</span>
+      <span class="tag">Unreal Engine 4</span>
+      <span class="tag">Secondary Animation</span>
+      <span class="tag">Pipeline</span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
+      <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
+      <div class="hero-grid-cell"></div><div class="hero-grid-cell"></div><div class="hero-grid-cell"></div>
+    </div>
   </div>
 </div>
 
 <section id="lop">
-  <div class="section-label">01 · featured work — lies of p</div>
-  <div class="project-header">
-    <div class="project-title">Lies of P</div>
-    <div class="project-sub">Neowiz · Unreal Engine 4 · 2023</div>
-  </div>
-  <div class="work-grid">
-    <div class="work-card">
-      <div class="work-card-title">Secondary Animation</div>
-      <div class="work-card-scope">전체 담당 · 단독 파이프라인</div>
-      <div class="work-card-desc">전체 캐릭터 의상, 머리카락, 장신구의 물리 시뮬레이션 설계 및 구현. 3ds Max 리깅 후 UE4 임포트, 물리 세팅 및 관리까지 풀 파이프라인 단독 담당.</div>
+  <div class="wrap">
+    <div class="sec-label">01 · featured work — lies of p</div>
+    <div class="proj-title">Lies of P</div>
+    <div class="proj-sub">Neowiz · Unreal Engine 4 · 2023</div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="wc-title">Secondary Animation</div>
+        <div class="wc-scope">전체 담당 · 단독 파이프라인</div>
+        <div class="wc-desc">전체 캐릭터 의상, 머리카락, 장신구의 물리 시뮬레이션 설계 및 구현. 3ds Max 리깅 후 UE4 임포트, 물리 세팅 및 관리까지 풀 파이프라인 단독 담당.</div>
+      </div>
+      <div class="work-card">
+        <div class="wc-title">Character & Costume Rigging</div>
+        <div class="wc-scope">전체 약 70~80% 담당</div>
+        <div class="wc-desc">게임 내 등장 캐릭터 및 의상 리깅 대부분 담당. 복잡한 의상 구조와 다양한 체형에 맞춘 리깅 작업 수행.</div>
+      </div>
+      <div class="work-card">
+        <div class="wc-title">Monster Rigging</div>
+        <div class="wc-scope">전체 약 70~80% 담당</div>
+        <div class="wc-desc">게임 내 몬스터 리깅 대부분 담당. 인간형부터 비인간형까지 다양한 구조의 몬스터 골격 설계 및 리깅.</div>
+      </div>
+      <div class="work-card">
+        <div class="wc-title">Engine Pipeline</div>
+        <div class="wc-scope">UE4 임포트 & 관리</div>
+        <div class="wc-desc">리깅 데이터를 UE4에 올리고 관리하는 파이프라인 전담. 물리 처리 세팅부터 인게임 퀄리티 확인까지.</div>
+      </div>
     </div>
-    <div class="work-card">
-      <div class="work-card-title">Character & Costume Rigging</div>
-      <div class="work-card-scope">전체 약 70~80% 담당</div>
-      <div class="work-card-desc">게임 내 등장 캐릭터 및 의상 리깅 대부분 담당. 복잡한 의상 구조와 다양한 체형에 맞춘 리깅 작업 수행.</div>
+    <div class="spec-list">
+      <div class="spec-item"><span class="spec-k">tool</span><span class="spec-v">3ds Max + Unreal Engine 4</span></div>
+      <div class="spec-item"><span class="spec-k">secondary anim</span><span class="spec-v">Cloth · Hair · Accessory — 전체 단독 담당</span></div>
+      <div class="spec-item"><span class="spec-k">rigging</span><span class="spec-v">Character · Costume · Monster — 70~80%</span></div>
     </div>
-    <div class="work-card">
-      <div class="work-card-title">Monster Rigging</div>
-      <div class="work-card-scope">전체 약 70~80% 담당</div>
-      <div class="work-card-desc">게임 내 몬스터 리깅 대부분 담당. 인간형부터 비인간형까지 다양한 구조의 몬스터 골격 설계 및 리깅.</div>
+    <div class="video-ph">
+      <span class="video-cap">in-game footage · 영상 첨부 예정</span>
     </div>
-    <div class="work-card">
-      <div class="work-card-title">Engine Pipeline</div>
-      <div class="work-card-scope">UE4 임포트 & 관리</div>
-      <div class="work-card-desc">리깅 데이터를 UE4에 올리고 관리하는 파이프라인 전담. 물리 처리 세팅부터 인게임 퀄리티 확인까지.</div>
-    </div>
-  </div>
-  <div class="spec-list">
-    <div class="spec-item"><span class="spec-key">tool</span><span class="spec-val">3ds Max + Unreal Engine 4</span></div>
-    <div class="spec-item"><span class="spec-key">secondary anim</span><span class="spec-val">Cloth · Hair · Accessory — 전체 단독 담당</span></div>
-    <div class="spec-item"><span class="spec-key">rigging</span><span class="spec-val">Character · Costume · Monster — 70~80%</span></div>
-  </div>
-  <div class="video-placeholder">
-    <div class="video-caption">in-game footage · 영상 첨부 예정</div>
   </div>
 </section>
 
 <section id="personal">
-  <div class="section-label">02 · personal work — maya + ue5</div>
-  <div class="personal-layout">
-    <div>
-      <img class="personal-img" src="char.png" alt="Free source character rigging" />
-      <div class="img-caption">free source character · maya rigging complete</div>
-    </div>
-    <div class="personal-info">
+  <div class="wrap">
+    <div class="sec-label">02 · personal work — maya + ue5</div>
+    <div class="personal-layout">
       <div>
-        <div class="personal-title">Stylized Female<br>Character Rig</div>
-        <div class="personal-sub">Maya · Unreal Engine 5 · 2024</div>
+        <img class="personal-img" src="char.png" alt="Free source character rigging" />
+        <div class="img-cap">free source character · maya rigging complete</div>
       </div>
-      <div class="personal-desc">스타일라이즈드 여성 캐릭터를 Maya로 리깅. 레이어드 스커트, 리본 장식, 긴 머리카락, 망토형 후면 의상 등 복잡한 의상 구조를 포함한 작업.</div>
-      <div class="detail-list">
-        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">Maya에서 캐릭터 전체 본 구조 설계 및 리깅 완료</div></div>
-        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">레이어드 스커트 · 리본 · 머리카락 · 망토 — 세컨더리 애니메이션 대상 부위 다수 포함</div></div>
-        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">UE5 임포트 및 물리 시뮬레이션 세팅 진행 중</div></div>
-        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">Lies of P 세컨더리 애니메이션 경험 기반으로 동일 파이프라인 적용</div></div>
-      </div>
-      <div class="wip-banner">
-        <span class="wip-label">WIP</span>
-        <span class="wip-text">UE5 물리 세팅 완료 후 영상 업데이트 예정</span>
+      <div class="personal-info">
+        <div>
+          <div class="p-title">Stylized Female<br>Character Rig</div>
+          <div class="p-sub">Maya · Unreal Engine 5 · 2024</div>
+        </div>
+        <div class="p-desc">스타일라이즈드 여성 캐릭터를 Maya로 리깅. 레이어드 스커트, 리본 장식, 긴 머리카락, 망토형 후면 의상 등 복잡한 의상 구조를 포함한 작업.</div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">Maya에서 캐릭터 전체 본 구조 설계 및 리깅 완료</div></div>
+          <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">레이어드 스커트 · 리본 · 머리카락 · 망토 — 세컨더리 애니메이션 대상 부위 다수 포함</div></div>
+          <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">UE5 임포트 및 물리 시뮬레이션 세팅 진행 중</div></div>
+          <div class="detail-item"><div class="detail-dot"></div><div class="detail-text">Lies of P 세컨더리 애니메이션 경험 기반으로 동일 파이프라인 적용</div></div>
+        </div>
+        <div class="wip-banner">
+          <span class="wip-label">WIP</span>
+          <span class="wip-text">UE5 물리 세팅 완료 후 영상 업데이트 예정</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="tools">
-  <div class="section-label">03 · tools & software</div>
-  <div class="tools-grid">
-    <div class="tool-card primary">
-      <div class="tool-card-header"><span class="tool-name">Maya</span><span class="tool-badge badge-main">main</span></div>
-      <div class="tool-desc">캐릭터 리깅 구현.<br>UE5 파이프라인 연동 작업 완료.</div>
-    </div>
-    <div class="tool-card primary">
-      <div class="tool-card-header"><span class="tool-name">Unreal Engine 5</span><span class="tool-badge badge-main">main</span></div>
-      <div class="tool-desc">UE4 기반 UE5 전환.<br>Maya 리깅 데이터 임포트 및 물리 처리 작업.</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-card-header"><span class="tool-name">3ds Max</span><span class="tool-badge badge-exp">Lies of P</span></div>
-      <div class="tool-desc">리깅 · 세컨더리 애니메이션.<br>상용 타이틀 풀 파이프라인 경험.</div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-card-header"><span class="tool-name">Unreal Engine 4</span><span class="tool-badge badge-exp">Lies of P</span></div>
-      <div class="tool-desc">리깅 데이터 관리.<br>물리 시뮬레이션 세팅 전담.</div>
+  <div class="wrap">
+    <div class="sec-label">03 · tools & software</div>
+    <div class="tools-grid">
+      <div class="tool-card primary">
+        <div class="tool-card-header"><span class="tool-name">Maya</span><span class="tool-badge badge-main">main</span></div>
+        <div class="tool-desc">캐릭터 리깅 구현.<br>UE5 파이프라인 연동 작업 완료.</div>
+      </div>
+      <div class="tool-card primary">
+        <div class="tool-card-header"><span class="tool-name">Unreal Engine 5</span><span class="tool-badge badge-main">main</span></div>
+        <div class="tool-desc">UE4 기반 UE5 전환.<br>Maya 리깅 데이터 임포트 및 물리 처리 작업.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header"><span class="tool-name">3ds Max</span><span class="tool-badge badge-exp">Lies of P</span></div>
+        <div class="tool-desc">리깅 · 세컨더리 애니메이션.<br>상용 타이틀 풀 파이프라인 경험.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-header"><span class="tool-name">Unreal Engine 4</span><span class="tool-badge badge-exp">Lies of P</span></div>
+        <div class="tool-desc">리깅 데이터 관리.<br>물리 시뮬레이션 세팅 전담.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="career">
-  <div class="section-label">04 · career</div>
-  <div class="career-list">
-    <div class="career-item">
-      <span class="career-year">2017 — 현재</span>
-      <span class="career-role">Technical Artist · Rigger</span>
-      <span class="career-company">Neowiz</span>
-    </div>
-    <div class="career-item">
-      <span class="career-year">2023</span>
-      <span class="career-role">Secondary Animation & Rigging</span>
-      <span class="career-company">Lies of P</span>
-    </div>
-    <div class="career-item">
-      <span class="career-year">이전</span>
-      <span class="career-role">Rigger</span>
-      <span class="career-company">Bless Unleashed</span>
+  <div class="wrap">
+    <div class="sec-label">04 · career</div>
+    <div class="career-list">
+      <div class="career-item">
+        <span class="career-year">2017 — 현재</span>
+        <span class="career-role">Technical Artist · Rigger</span>
+        <span class="career-company">Neowiz</span>
+      </div>
+      <div class="career-item">
+        <span class="career-year">2023</span>
+        <span class="career-role">Secondary Animation & Rigging</span>
+        <span class="career-company">Lies of P</span>
+      </div>
+      <div class="career-item">
+        <span class="career-year">이전</span>
+        <span class="career-role">Rigger</span>
+        <span class="career-company">Bless Unleashed</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="section-label">05 · contact</div>
-  <div class="contact-area">
-    <div>
-      <div class="contact-line">함께<br><span>작업해요</span></div>
-      <a href="mailto:여기에@email.com" class="cta-btn">이메일 보내기 →</a>
-    </div>
-    <div class="contact-info">
-      email · 여기에@email.com<br>
-      available · 협의 가능
+  <div class="wrap">
+    <div class="sec-label">05 · contact</div>
+    <div class="contact-area">
+      <div>
+        <div class="contact-line">함께<br><span>작업해요</span></div>
+        <a href="mailto:rdpark00@gmail.com" class="cta-btn">이메일 보내기 →</a>
+      </div>
+      <div class="contact-info">
+        email · rdpark00@gmail.com<br>
+        github · rdpark-dev<br>
+        available · 협의 가능
+      </div>
     </div>
   </div>
 </section>
