@@ -210,8 +210,22 @@ section{padding:5rem 0;border-bottom:0.5px solid var(--border)}
       <div class="spec-item"><span class="spec-k">secondary anim</span><span class="spec-v">Hair · Coat · Accessory — 전체 단독 담당</span></div>
       <div class="spec-item"><span class="spec-k">rigging</span><span class="spec-v">Character · Costume · Monster — 파이프라인 설계·운영</span></div>
     </div>
-    <div class="video-ph">
-      <span class="video-cap">in-game footage · 영상 첨부 예정</span>
+    <div style="position:relative;user-select:none;">
+      <div style="overflow:hidden;border:0.5px solid var(--border);">
+        <div id="lopSlider" style="display:flex;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
+          <video controls playsinline style="width:100%;flex-shrink:0;" src="lop_costume_01.mp4" type="video/mp4"></video>
+          <video controls playsinline style="width:100%;flex-shrink:0;" src="lop_costume_02.mp4" type="video/mp4"></video>
+          <video controls playsinline style="width:100%;flex-shrink:0;" src="lop_costume_03.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <button onclick="lopGo(-1)" style="position:absolute;top:50%;left:-20px;transform:translateY(-50%);width:40px;height:40px;background:rgba(14,14,15,0.85);border:0.5px solid var(--accent);color:var(--accent);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8592;</button>
+      <button onclick="lopGo(1)" style="position:absolute;top:50%;right:-20px;transform:translateY(-50%);width:40px;height:40px;background:rgba(14,14,15,0.85);border:0.5px solid var(--accent);color:var(--accent);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8594;</button>
+      <div id="lopDots" style="display:flex;gap:8px;justify-content:center;margin-top:1rem;">
+        <div onclick="lopGoTo(0)" style="width:6px;height:6px;border-radius:50%;background:var(--accent);cursor:pointer;"></div>
+        <div onclick="lopGoTo(1)" style="width:6px;height:6px;border-radius:50%;background:var(--muted);cursor:pointer;"></div>
+        <div onclick="lopGoTo(2)" style="width:6px;height:6px;border-radius:50%;background:var(--muted);cursor:pointer;"></div>
+      </div>
+      <div style="font-family:var(--fm);font-size:13px;color:var(--muted);letter-spacing:0.06em;margin-top:0.75rem;text-align:center;">Lies of P · in-game footage</div>
     </div>
   </div>
 </section>
@@ -346,7 +360,28 @@ section{padding:5rem 0;border-bottom:0.5px solid var(--border)}
 </section>
 
 <script>
-const imgs = document.getElementById('sliderImgs');
+const lopSlider = document.getElementById('lopSlider');
+const lopDotEls = document.getElementById('lopDots').children;
+let lopCur = 0;
+const lopTotal = 3;
+
+function lopGoTo(idx) {
+  const videos = lopSlider.querySelectorAll('video');
+  videos[lopCur].pause();
+  lopCur = (idx + lopTotal) % lopTotal;
+  lopSlider.style.transform = 'translateX(-' + (lopCur * 100) + '%)';
+  Array.from(lopDotEls).forEach((d, i) => d.style.background = i === lopCur ? 'var(--accent)' : 'var(--muted)');
+}
+function lopGo(dir) { lopGoTo(lopCur + dir); }
+
+let lopStartX = 0;
+lopSlider.addEventListener('touchstart', e => lopStartX = e.touches[0].clientX);
+lopSlider.addEventListener('touchend', e => {
+  const diff = lopStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) lopGo(diff > 0 ? 1 : -1);
+});
+
+
 const dots = document.querySelectorAll('.slider-dot');
 const caps = document.querySelectorAll('.img-cap');
 let cur = 0;
